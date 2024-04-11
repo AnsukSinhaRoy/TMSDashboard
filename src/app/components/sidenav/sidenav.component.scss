@@ -1,0 +1,108 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+
+:host {
+  .mat-icon {
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+}
+
+.logo {
+  text-align: center;
+  padding: 2.6rem 1rem;
+
+  img {
+    width: 200px;
+  }
+}
+
+.mat-divider {
+  border-top-width: 2px;
+  border-color: white;
+}
+
+.mat-list-item {
+  color: #d4d9e1 !important;
+  font-size: 0.8rem;
+  height: 44px !important;
+  margin-bottom: 4px;
+
+  &:hover {
+    color: #f2f5f7 !important;
+  }
+
+  ::ng-deep {
+    .mat-list-item-content {
+      border-radius: 5px;
+      margin: 0 8px;
+
+      &:hover {
+        background: #002270 !important;
+      }
+    }
+  }
+}
+
+.list-item-active {
+  color: #ffffff !important;
+
+  ::ng-deep {
+    .mat-list-item-content {
+      background: #001c5c !important;
+
+      &:hover {
+        background: #001341 !important;
+      }
+    }
+  }
+}
+
+.mat-subheader {
+  color: #818cf8 !important;
+  font-size: 0.6rem;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+.raiseticket {
+  margin-top: 100px;
+  color: #d4d9e1 !important;
+  font-size: 1rem;
+  height: 60px !important;
+  margin-bottom: 4px;
+
+  &:hover {
+    color: #f2f5f7 !important;
+  }
+
+  ::ng-deep {
+    .mat-list-item-content {
+      border-radius: 15px;
+      margin: 2px;
+
+      &:hover {
+        background: linear-gradient(270deg,  #940076, #4a007f,) !important;
+      }
+    }
+  }
+}
+
+.raiseticketactive {
+  color: #ffffff !important;
+
+  ::ng-deep {
+    .mat-list-item-content {
+      background: linear-gradient(180deg,  #005c94, #00647f,) !important;
+
+      &:hover {
+        background: linear-gradient(0deg,  #005c94, #00647f,) !important;
+      }
+    }
+  }
+}
+
+.icon-spacing {
+  margin-left: 50px;
+  /* Adjust the value to control the space between icon and text */
+}

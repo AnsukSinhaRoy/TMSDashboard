@@ -1,0 +1,67 @@
+<div class="stepper-container">
+    <mat-horizontal-stepper [linear]="true" [selectedIndex]="activeStep" class="step-content">
+        <mat-step *ngFor="let stepLabel of steps; let i = index">
+            <ng-template matStepLabel>{{ stepLabel }}</ng-template>
+            <div class="review-content">
+                <h2><strong>Selected Machine:</strong> {{ selectedMachine }}</h2>
+                <h2><strong>Selected Machine Type:</strong> {{ selectedMachineType }}</h2>
+                <h2><strong>Selected Problem:</strong> {{ selectedProblem }}</h2>
+            </div>
+            <div class="step-content">
+                <!-- Step 1: Select Machine -->
+                <div *ngIf="activeStep === 0">
+                    <mat-label>Select Machine</mat-label>
+                    <div class="machine-buttons">
+                        <button mat-button (click)="onselectMachine('Washing Machine')" class="machine-button">
+                            <h1>Washing Machine</h1>
+                        </button>
+                        <button mat-button (click)="onselectMachine('Refrigerator')" class="machine-button">
+                            <h1>Refrigerator</h1>
+                        </button>
+                        <button mat-button (click)="onselectMachine('Air Conditioner')" class="machine-button">
+                            <h1>Air Conditioner</h1>
+                        </button>
+                    </div>
+                    <div class="machine-buttons">
+                        <button mat-button (click)="onselectMachine('Laptop')" class="machine-button">
+                            <h1>Laptop</h1>
+                        </button>
+                        <button mat-button (click)="onselectMachine('TV')" class="machine-button">
+                            <h1>Television</h1>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2 & 3: Select Problem (similar function) -->
+                <mat-form-field *ngIf="i === 1">
+                    <mat-label>Specify the Type</mat-label>
+                    <mat-select id="typeOfMachine" (selectionChange)="ontypeSelect($event)">
+                        <mat-option [value]="" disabled><h3> Select Type</h3></mat-option>
+                        <mat-option *ngFor="let machinetype of machineType" [value]="machinetype"><h2>{{ machinetype}}</h2></mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <!-- Step 2 & 3: Select Problem (similar function) -->
+                <mat-form-field *ngIf="i === 2">
+                    <mat-label>Select Problem</mat-label>
+                    <mat-select id="problemselect" (selectionChange)="onProblemSelect($event)">
+                        <mat-option [value]="''" disabled>Select a Problem</mat-option>
+                        <mat-option *ngFor="let problem of problemOptions" [value]="problem"><h2>{{ problem }}</h2></mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <!-- Step 4: Review and Finish -->
+                <div *ngIf="i === 3" class="review-step">
+                    <mat-label for="reviewAndFinishSelect">
+                        <h2>Review and Finish</h2>
+                    </mat-label>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button mat-button color="warn" *ngIf="i > 0" (click)="previousStep()"><h2>Back</h2></button>
+                <button mat-button color="primary" *ngIf="i == 3" (click)="raiseTicket()"><h2><strong>Raise Ticket</strong></h2></button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

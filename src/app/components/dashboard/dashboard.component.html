@@ -1,0 +1,22 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Home</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data position-absolute text-center">
+      <div class="container">
+  <div class="buttons">
+    <button (click)="showActiveTickets()">Active Tickets</button>
+    <button (click)="showClosedTickets()">Closed Tickets</button>
+    <button (click)="showAllTickets()">All Tickets</button>
+  </div>
+  <div class="ticket-list">
+    <h2>{{ category }}</h2>
+    <ul *ngIf="tickets.length > 0">
+      <li *ngFor="let ticket of tickets">{{ ticket }}</li>
+    </ul>
+    <p *ngIf="tickets.length === 0">No tickets found for this category.</p>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>

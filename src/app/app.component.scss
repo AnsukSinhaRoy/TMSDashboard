@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Use 100vh instead of 100% to set the component height to the full viewport height */
+}
+
+mat-drawer {
+  width: 300px;
+  /* Remove the height property, so the <mat-drawer> height will be determined by its content */
+  background: linear-gradient(45deg,  #ad00a1, #002f9d,);
+}
+mat-drawer-container {
+  height: 100vh; /* Use 100vh instead of 100% to set the <mat-drawer-container> height to the full viewport height */
+}

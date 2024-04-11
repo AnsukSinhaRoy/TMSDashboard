@@ -1,0 +1,54 @@
+
+
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Edit Profile</div>
+  <div class="page__content shadow p-3 position-relative">
+<form class="modal-content">
+  <div class="container">
+
+    <label for="email"><b>Email</b></label>
+    <br><br>
+    <div class="display-box">
+      <span id="email">{{ emailValue }}</span>
+    </div>
+
+    <br>
+    <label for="firstName"><b>First Name</b></label>
+    <br><br>
+    <div class="display-box">
+      <span id="firstName">{{ firstName }}</span>
+      <i class="material-icons edit-icon" (click)="editFirstName($event)">edit</i>
+    </div>
+
+    <br>
+    <label for="lastName"><b>Last Name</b></label>
+    <br><br>
+    <div class="display-box">
+      <span id="lastName">{{ lastName }}</span>
+      <i class="material-icons edit-icon" (click)="editLastName($event)">edit</i>
+    </div>
+
+    <br>
+    <label for="phoneNumber"><b>Phone Number</b></label>
+    <br><br>
+    <div class="display-box">
+      <span id="phoneNumber">{{ phoneNumber }}</span>
+      <i class="material-icons edit-icon" (click)="editPhoneNumber($event)">edit</i>
+    </div>
+    <br>
+
+    <label for="address"><b>Address</b></label>
+    <br><br>
+    <div class="display-box">
+      <span id="address">{{ address }}</span>
+      <i class="material-icons edit-icon" (click)="editaddress($event)">edit</i>
+    </div>
+    <br>
+
+    <div class="clearfix">
+      <button type="button" (click)="update()" class="cancelbtn">Commit Changes</button>
+    </div>
+  </div>
+</form>
+  </div>
+</div>

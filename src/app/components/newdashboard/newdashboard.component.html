@@ -1,0 +1,46 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Dashboard</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="buttons">
+      <button (click)="showActiveTickets()"[ngClass]="{ 'active-tab': activeTab === 'active' }"><h2>Active Tickets ({{this.numberOfActiveTickets}})</h2></button>
+      <button (click)="showClosedTickets()" [ngClass]="{ 'active-tab': activeTab === 'closed' }"><h2>Closed Tickets ({{this.numberOfClosedTickets}})</h2></button>
+      <button (click)="showAllTickets()" [ngClass]="{ 'active-tab': activeTab === 'all' }"><h2>All Tickets ({{this.numberOfAllTickets}})</h2></button>
+    </div>
+    <div class="ticket-list" *ngIf="activeTicketsFlag || closedTicketsFlag || allTicketsFlag">
+      <h2>{{ category }}</h2>
+      <div class="ticket-box" *ngIf="tickets.length > 0">
+        <div class="ticket" *ngFor="let ticket of tickets">
+          <mat-toolbar-row class="justify-content-between">
+            <div class="ticket-attribute-box">
+              <h3>Raise Date: {{ ticket.raiseDate }}</h3>
+            </div>
+            <div class="ticket-attribute-box">
+              <h3>Employee Name: {{ ticket.employeeName }}</h3>
+            </div>
+            <div class="ticket-attribute-box">
+              <h3>Ticket ID: {{ ticket.ticketID }}</h3>
+            </div>
+            <div class="ticket-attribute-box">
+              <h3>status: {{ ticket.status }}</h3>
+            </div>
+            <div class="ticket-attribute-box">
+              <h3>SLA: {{ ticket.sla }}</h3>
+            </div>
+          </mat-toolbar-row>
+          <mat-toolbar-row class="justify-content-between">
+            <div class="ticket-attribute-box">
+              <h3>Machine: {{ ticket.machine }}</h3>
+            </div>
+            <div class="ticket-attribute-box-desc">
+              <h3>Description: {{ ticket.description }}</h3>
+            </div>
+            <div class="ticket-attribute-box">
+              <h3>Close OTP: {{ ticket.closeOPT }}</h3>
+            </div>
+          </mat-toolbar-row>
+        </div>
+      </div>
+      <p *ngIf="tickets.length === 0">No tickets found for this category.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<!-- login-history.component.html -->
+<h1>Login History</h1>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Username</th>
+    <th>IP Address</th>
+    <th>Remember Me</th>
+  </tr>
+  <tr *ngFor="let entry of loginHistory">
+    <td>{{ entry.date }}</td>
+    <td>{{ entry.username }}</td>
+    <td>{{ entry.ipAddress }}</td>
+    <td>
+        <ng-container *ngIf="+entry.status === 0; else yesCell">No</ng-container>
+        <ng-template #yesCell>Yes</ng-template>
+      </td>
+  </tr>
+</table>
